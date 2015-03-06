@@ -1,5 +1,4 @@
 //Brenna Pavlinchak 3/4
-
 package com.example.ravenmargret.java1project1;
 
 import android.app.AlertDialog;
@@ -127,24 +126,25 @@ public class MainActivity extends ActionBarActivity
                         });
                         dialog.show();
                     }
-                    else
+
+
+                }
+                else
+                {
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(mContext);
+                    dialog.setTitle("Index Picked");
+                    dialog.setMessage("Invalid Index!");
+                    dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener()
                     {
-                        AlertDialog.Builder dialog = new AlertDialog.Builder(mContext);
-                        dialog.setTitle("Index Picked");
-                        dialog.setMessage("Invalid Index!");
-                        dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener()
+                        @Override
+                        public void onClick(DialogInterface dialog, int which)
                         {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which)
-                            {
 
-                            }
+                        }
 
-                        });
-                        dialog.show();
-                        getIndexText.setText("");
-                    }
-
+                    });
+                    dialog.show();
+                    getIndexText.setText("");
                 }
 
             }
