@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Java1Project3</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="spinnerArray">
+        <item>Yasawa Island</item>
+        <item>Lizard Island</item>
+        <item>Kahala</item>
+        <item>The Sebastian-Vail</item>
+        <item>Royal Pacific Resort</item>
+        <item>Jade Mountain</item>
+        <item>The Edgewater</item>
+        <item>Lotus Pond</item>
+        <item>Samoset Resort</item>
+        <item>La Valencia</item>
+        <item>The Royal Park Hotel</item>
+        <item>Disney World</item>
+        <item>Discovery Cove</item>
+    </string-array>
+</resources>
