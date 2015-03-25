@@ -150,18 +150,22 @@ public class MainActivity extends ActionBarActivity
             Log.e("JSON DATA", s);
             try {
 
-                JSONArray mainJSON = new JSONArray(s);
-                JSONArray childrenArray = mainJSON.getJSONArray(0);
+                JSONObject mainJSON = new JSONObject(s);
+                JSONObject childrenObject = mainJSON.getJSONObject(0);
 
 
-                for (int i = 0; i < childrenArray.length(); i++)
+                for (int i = 0; i < childrenObject.length(); i++)
                 {
-                    JSONObject childrenObject = childrenArray.getJSONObject(i);
+                    JSONArray childrenArray = childrenObject.getJSONObject(i);
                     String title;
 
-                    if (childrenObject.has("title"))
+                    if (childrenArray.has("title"))
                     {
-                        title = childrenObject.getString("title");
+                        title = childrenArray.getString("MovieName");
+                        title = childrenArray.getString("ActorName");
+                        title = childrenArray.getString("ReleaseDate");
+                        title = childrenArray.getString("Director");
+                        title = childrenArray.getString("Review");
                         Log.i("E:", title);
                     }
                     else
