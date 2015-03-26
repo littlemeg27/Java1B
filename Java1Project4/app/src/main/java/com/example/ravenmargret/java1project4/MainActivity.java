@@ -151,12 +151,12 @@ public class MainActivity extends ActionBarActivity
             try {
 
                 JSONObject mainJSON = new JSONObject(s);
-                JSONObject childrenObject = mainJSON.getJSONObject(0);
+                JSONObject childArray = mainJSON.getJSONObject(0);
 
 
-                for (int i = 0; i < childrenObject.length(); i++)
+                for (int i = 0; i < childArray.length(); i++)
                 {
-                    JSONArray childrenArray = childrenObject.getJSONObject(i);
+                    JSONArray childObject = childArray.getJSONObject(i);
                     String movieName;
                     String actorName;
                     String releaseDate;
@@ -164,13 +164,13 @@ public class MainActivity extends ActionBarActivity
                     String review;
 
 
-                    if (childrenArray.has("MovieName"))
+                    if (childArray.has("MovieName"))
                     {
-                        movieName = childrenArray.getString("MovieName");
-                        actorName = childrenArray.getString("ActorName");
-                        releaseDate = childrenArray.getString("ReleaseDate");
-                        director = childrenArray.getString("Director");
-                        review = childrenArray.getString("Review");
+                        movieName = childArray.getString("MovieName");
+                        actorName = childArray.getString("ActorName");
+                        releaseDate = childArray.getString("ReleaseDate");
+                        director = childArray.getString("Director");
+                        review = childArray.getString("Review");
                         Log.i("E:", movieName);
                     }
                     else
@@ -192,8 +192,8 @@ public class MainActivity extends ActionBarActivity
             }
             catch (JSONException e)
             {
-                Toast toast = Toast.makeText(MainActivity.this, "Something Happened", Toast.LENGTH_SHORT);
-                toast.show();
+                //Toast toast = Toast.makeText(MainActivity.this, "Something Happened", Toast.LENGTH_SHORT);
+                //toast.show();
 
             }
 

@@ -11,21 +11,12 @@ public class Reviews
     String mDirector;
     String mReview;
 
-    public Reviews(String mMovieName) { this.mMovieName = mMovieName; }
-    public Reviews(String mActorName)
+    public Reviews(String mMovieName, String mActorName, String mReleaseDate, String mDirector, String mReview)
     {
+        this.mMovieName = mMovieName;
         this.mActorName = mActorName;
-    }
-    public Reviews(String mReleaseDate)
-    {
         this.mReleaseDate = mReleaseDate;
-    }
-    public Reviews(String mDirector)
-    {
         this.mDirector = mDirector;
-    }
-    public Reviews(String mReview)
-    {
         this.mReview = mReview;
     }
 
@@ -50,10 +41,7 @@ public class Reviews
         return mReview;
     }
 
-    public void setmMovieName(String mMovieName)
-    {
-        this.mMovieName = mMovieName;
-    }
+    public void setmMovieName(String mMovieName) { this.mMovieName = mMovieName; }
     public void setmActorName(String mActorName)
     {
         this.mActorName = mActorName;
@@ -74,10 +62,7 @@ public class Reviews
     @Override
     public String toString()
     {
-        return mMovieName;
-        return mActorName;
-        return mReleaseDate;
-        return mDirector;
-        return mReview;
+        return mMovieName + mActorName + mReleaseDate + mDirector + mReview;
+
     }
 }
