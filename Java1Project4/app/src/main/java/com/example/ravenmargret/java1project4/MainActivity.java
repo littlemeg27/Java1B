@@ -157,23 +157,36 @@ public class MainActivity extends ActionBarActivity
                 for (int i = 0; i < childrenObject.length(); i++)
                 {
                     JSONArray childrenArray = childrenObject.getJSONObject(i);
-                    String title;
+                    String movieName;
+                    String actorName;
+                    String releaseDate;
+                    String director;
+                    String review;
 
-                    if (childrenArray.has("title"))
+
+                    if (childrenArray.has("MovieName"))
                     {
-                        title = childrenArray.getString("MovieName");
-                        title = childrenArray.getString("ActorName");
-                        title = childrenArray.getString("ReleaseDate");
-                        title = childrenArray.getString("Director");
-                        title = childrenArray.getString("Review");
-                        Log.i("E:", title);
+                        movieName = childrenArray.getString("MovieName");
+                        actorName = childrenArray.getString("ActorName");
+                        releaseDate = childrenArray.getString("ReleaseDate");
+                        director = childrenArray.getString("Director");
+                        review = childrenArray.getString("Review");
+                        Log.i("E:", movieName);
                     }
                     else
                     {
-                        title = "N/A";
+                        movieName = "N/A";
+                        actorName = "N/A";
+                        releaseDate = "N/A";
+                        director = "N/A";
+                        review = "N/A";
                     }
 
-                    movieReviews.add(new Reviews(title));
+                    movieReviews.add(new Reviews(movieName));
+                    movieReviews.add(new Reviews(actorName));
+                    movieReviews.add(new Reviews(releaseDate));
+                    movieReviews.add(new Reviews(director));
+                    movieReviews.add(new Reviews(review));
                 }
 
             }

@@ -2,11 +2,6 @@
 
 package com.example.ravenmargret.java1project4;
 
-import android.nfc.Tag;
-import android.util.Log;
-import org.json.JSONObject;
-
-import org.json.JSONObject;
 
 public class Reviews
 {
