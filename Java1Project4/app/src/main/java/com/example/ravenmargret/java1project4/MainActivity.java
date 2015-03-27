@@ -135,6 +135,8 @@ public class MainActivity extends ActionBarActivity
             return result;
         }
 
+
+
         @Override
         protected void onProgressUpdate(Void... values)
         {
@@ -148,10 +150,11 @@ public class MainActivity extends ActionBarActivity
             super.onPostExecute(s);
 
             Log.e("JSON DATA", s);
-            try {
+            try
+            {
 
-                JSONObject mainJSON = new JSONObject(s);
-                JSONObject childArray = mainJSON.getJSONObject(0);
+                JSONObject reviewObject = new JSONObject(s);
+                JSONObject childArray = reviewObject.getJSONObject(0);
 
 
                 for (int i = 0; i < childArray.length(); i++)
