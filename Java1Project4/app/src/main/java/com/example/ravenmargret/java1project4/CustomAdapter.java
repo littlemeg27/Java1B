@@ -85,7 +85,7 @@ public class CustomAdapter extends BaseAdapter
 
         Reviews item = getItem(position);
 
-        ((TextView) convertView.findViewById(R.id.theTexView)).setText(item.toString());
+        ((TextView) convertView.findViewById(R.id.theTexView)).setText(item.getmActorName());
 
         return convertView;
 

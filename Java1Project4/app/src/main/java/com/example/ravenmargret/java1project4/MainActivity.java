@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,7 +48,6 @@ public class MainActivity extends ActionBarActivity
 
         mContext = this;
 
-
         reviewList = (ListView) findViewById(R.id.listView);
         Button searchButton = (Button)findViewById(R.id.searchButton);
         searchReviews = (EditText) findViewById(R.id.searchReviews);
@@ -73,7 +73,7 @@ public class MainActivity extends ActionBarActivity
                 }
                 catch(Exception e)
                 {
-                    Log.e(TAG, "Invalid query for movie: " + movie);
+                    Log.e(TAG, "Invalid query for review: ");
                 }
             }
         });
@@ -147,52 +147,36 @@ public class MainActivity extends ActionBarActivity
             super.onPostExecute(s);
 
             Log.e("JSON DATA", s);
-<<<<<<< HEAD
+
+
             try
             {
-=======
-            JSONObject reviewInfoObject;
-            try {
->>>>>>> origin/master
 
                 JSONObject reviewObject = new JSONObject(s);
-                JSONObject childArray = reviewObject.getJSONObject(0);
+                JSONArray reviewArray = reviewObject.getJSONArray("MovieReviews");
 
 
-                for (int i = 0; i < childArray.length(); i++)
+                for (int i = 0; i < reviewArray.length(); i++)
                 {
-                    JSONArray childObject = childArray.getJSONObject(i);
+                    JSONObject insideObject = reviewArray.getJSONObject(i);
                     String movieName;
                     String actorName;
                     String releaseDate;
                     String director;
                     String review;
 
+                    movieName = insideObject.getString("MovieName");
+                    actorName = insideObject.getString("ActorName");
+                    releaseDate = insideObject.getString("ReleaseDate");
+                    director = insideObject.getString("Director");
+                    review = insideObject.getString("Review");
 
-                    if (childArray.has("MovieName"))
-                    {
-                        movieName = childArray.getString("MovieName");
-                        actorName = childArray.getString("ActorName");
-                        releaseDate = childArray.getString("ReleaseDate");
-                        director = childArray.getString("Director");
-                        review = childArray.getString("Review");
-                        Log.i("E:", movieName);
-                    }
-                    else
-                    {
-                        movieName = "N/A";
-                        actorName = "N/A";
-                        releaseDate = "N/A";
-                        director = "N/A";
-                        review = "N/A";
-                    }
+                    movieReviews.add(new Reviews(movieName, actorName, releaseDate, director, review));
 
-                    movieReviews.add(new Reviews(movieName));
-                    movieReviews.add(new Reviews(actorName));
-                    movieReviews.add(new Reviews(releaseDate));
-                    movieReviews.add(new Reviews(director));
-                    movieReviews.add(new Reviews(review));
                 }
+
+
+
 
             }
             catch (JSONException e)
