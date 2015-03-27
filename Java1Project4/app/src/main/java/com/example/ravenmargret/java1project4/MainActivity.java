@@ -49,13 +49,10 @@ public class MainActivity extends ActionBarActivity
 
 
         reviewList = (ListView) findViewById(R.id.listView);
-
         Button searchButton = (Button)findViewById(R.id.searchButton);
-
         searchReviews = (EditText) findViewById(R.id.searchReviews);
-
+        
         searchButton.setOnClickListener(new View.OnClickListener()
-
         {
             @Override
             public void onClick(View v)
@@ -122,13 +119,13 @@ public class MainActivity extends ActionBarActivity
             catch (MalformedURLException e)
             {
                 e.printStackTrace();
-                Toast toast = Toast.makeText(MainActivity.this, "Could not find the movie try again", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(MainActivity.this, "Could not find the anything try again", Toast.LENGTH_SHORT);
                 toast.show();
             }
             catch (IOException e)
             {
                 e.printStackTrace();
-                Toast toast = Toast.makeText(MainActivity.this, "Could not find movie try again", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(MainActivity.this, "Could not find anything try again", Toast.LENGTH_SHORT);
                 toast.show();
             }
 
@@ -150,8 +147,13 @@ public class MainActivity extends ActionBarActivity
             super.onPostExecute(s);
 
             Log.e("JSON DATA", s);
+<<<<<<< HEAD
             try
             {
+=======
+            JSONObject reviewInfoObject;
+            try {
+>>>>>>> origin/master
 
                 JSONObject reviewObject = new JSONObject(s);
                 JSONObject childArray = reviewObject.getJSONObject(0);
