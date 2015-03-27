@@ -70,7 +70,11 @@ public class CustomAdapter extends BaseAdapter
 
         Reviews item = getItem(position);
 
-        ((TextView) convertView.findViewById(R.id.theTextView)).setText(item.getmMovieName());
+        ((TextView) convertView.findViewById(R.id.MovieNameTextView)).setText(item.getmMovieName());
+        ((TextView) convertView.findViewById(R.id.ActorNameTextView)).setText(item.getmActorName());
+        ((TextView) convertView.findViewById(R.id.ReleaseDateTextView)).setText(item.getmReleaseDate());
+        ((TextView) convertView.findViewById(R.id.DirectorTextView)).setText(item.getmDirector());
+        ((TextView) convertView.findViewById(R.id.ReviewTextView)).setText(item.getmReview());
 
         return convertView;
     }

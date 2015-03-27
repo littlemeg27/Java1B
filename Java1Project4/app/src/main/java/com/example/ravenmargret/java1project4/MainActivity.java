@@ -151,10 +151,8 @@ public class MainActivity extends ActionBarActivity
 
             try
             {
-
                 JSONObject reviewObject = new JSONObject(s);
                 JSONArray reviewArray = reviewObject.getJSONArray("MovieReviews");
-
 
                 for (int i = 0; i < reviewArray.length(); i++)
                 {
@@ -172,7 +170,6 @@ public class MainActivity extends ActionBarActivity
                     review = insideObject.getString("Review");
 
                     movieReviews.add(new Reviews(movieName, actorName, releaseDate, director, review));
-
                 }
 
             }
