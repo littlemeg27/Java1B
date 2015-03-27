@@ -62,7 +62,7 @@ public class Adapter extends BaseAdapter
     @Override
     public View getView(int position, View convertView, ViewGroup parent)
     {
-        if (convertView == null) //No recycled view create new
+        if(convertView == null) //No recycled view create new
         {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.custom_adapter, parent, false);
         }

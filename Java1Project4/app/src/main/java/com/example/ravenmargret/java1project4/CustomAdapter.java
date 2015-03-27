@@ -15,81 +15,63 @@ import java.util.ArrayList;
 
 public class CustomAdapter extends BaseAdapter
 {
-
-
     Context mContext;
-    ArrayList<Reviews> mCustomClass;
+    ArrayList<Reviews> mObjects;
 
-
-
-    private static final int ID_CONSTANT = 0x01000000;
-
-    public CustomAdapter(Context mContext, ArrayList<Reviews> mCustomClass)
+    public CustomAdapter(Context d, ArrayList<Reviews> objects)
     {
-        this.mContext = mContext;
-        this.mCustomClass = mCustomClass;
+        mContext = d;
+        mObjects = objects;
     }
 
+    private static final int ID_CONSTANT = 0x01000000;
 
     @Override
     public int getCount()
     {
-        if (mCustomClass != null)
+        if(mObjects != null)
         {
-            return mCustomClass.size();
+            return mObjects.size();
         }
+
         else
         {
             return 0;
         }
+    }
+
+
+    @Override
+    public long getItemId(int position)
+    {
+        return ID_CONSTANT + position;
     }
 
     @Override
     public Reviews getItem(int position)
     {
-
-        if (mCustomClass != null && position <mCustomClass.size() && position >= 0)
+        if(mObjects != null && position < mObjects.size() && position >= 0)
         {
-            return mCustomClass.get(position);
+            return  mObjects.get(position);
         }
         else
         {
             return null;
         }
-
     }
-
-    @Override
-    public long getItemId(int position)
-    {
-        if (mCustomClass != null)
-        {
-            return ID_CONSTANT + position;
-
-        }
-        else
-        {
-            return 0;
-        }
-    }
-
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent)
     {
-
-        if (convertView == null)
+        if (convertView == null) //No recycled view create new
         {
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.custom_layout, parent, false );
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.custom_layout, parent, false);
         }
 
         Reviews item = getItem(position);
 
-        ((TextView) convertView.findViewById(R.id.theTexView)).setText(item.getmActorName());
+        ((TextView) convertView.findViewById(R.id.theTextView)).setText(item.getmMovieName());
 
         return convertView;
-
-
-
     }
 }

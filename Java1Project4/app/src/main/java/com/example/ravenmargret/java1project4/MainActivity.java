@@ -175,15 +175,11 @@ public class MainActivity extends ActionBarActivity
 
                 }
 
-
-
-
             }
             catch (JSONException e)
             {
                 //Toast toast = Toast.makeText(MainActivity.this, "Something Happened", Toast.LENGTH_SHORT);
                 //toast.show();
-
             }
 
             CustomAdapter adaptor = new CustomAdapter(mContext, movieReviews);
